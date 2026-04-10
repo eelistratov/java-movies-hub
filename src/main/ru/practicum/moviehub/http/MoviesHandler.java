@@ -90,8 +90,9 @@ public class MoviesHandler extends BaseHttpHandler {
             @SuppressWarnings("unchecked")
             Map<String, Object> json = gson.fromJson(body, Map.class);
             String title = (String) json.get("title");
-            Double yearDouble = (Double) json.get("year");
-            int year = yearDouble != null ? yearDouble.intValue() : 0;
+            Integer yearInteger = (Integer) json.get("year");
+            int year = yearInteger != null ? yearInteger : 0;
+
 
             List<String> errors = validateMovie(title, year);
             if (!errors.isEmpty()) {
