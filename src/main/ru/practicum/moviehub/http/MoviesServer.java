@@ -19,7 +19,7 @@ public class MoviesServer {
             server.createContext("/movies", new MoviesHandler(store));
             server.setExecutor(null);
         } catch (IOException e) {
-            throw new RuntimeException("Не удалось создать HTTP-сервер", e);
+            throw new RuntimeException("Не удалось создать HTTP-сервер на порту " + port, e);
         }
     }
 
